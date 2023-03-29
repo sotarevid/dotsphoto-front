@@ -1,0 +1,38 @@
+.footer {
+    display: flex;
+    justify-self: end;
+    flex-shrink: 0;
+    align-items: center;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    margin: 25px 0 0 0;
+    max-width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    border-top: #f2f2f2 solid 1px;
+}
+
+.contacts {
+    margin: 10px;
+    display: block;
+}
+
+.contact {
+    margin: 5px 0 0 0;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.contact:first-of-type {
+    margin: 0;
+}
+
+.link-with-logo {
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    margin: 0 0 0 10px;
+}
