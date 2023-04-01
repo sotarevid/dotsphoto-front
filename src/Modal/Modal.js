@@ -42,7 +42,7 @@ function Modal({hidden, callback}) {
                 <CloseButton callback={close}/>
                 <h1 className='text-primary modal-header'>UPLOAD A FILE!!!</h1>
                 <div className='container-row'>
-                    <label className={`file-input ${buttonText === 'Browse...' ? '' : 'file-input-has-file'}`}>
+                    <label className={`file-input ${buttonText === 'Browse...' ? '' : 'file-input-has-file'} ${isUploading ? 'no-pointer' : ''}`}>
                         {buttonText}
                         <input id='file-input' className='hidden' type='file' accept='image/*' disabled={isUploading} onChange={(e) => change(e)}/>
                     </label>
