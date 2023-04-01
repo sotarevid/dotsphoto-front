@@ -17,7 +17,21 @@
     text-decoration: none;
     display: block;
     font-size: 24px;
-    line-height: 24px;
+}
+
+input[type='button'].sidebar-item {
+    align-self: start;
+    display: block;
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 24px;
+    border: none;
+    background: none;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    color: var(--dark-mint);
+    cursor: pointer;
 }
 
 .sidebar-item:last-child {

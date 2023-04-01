@@ -16,6 +16,10 @@ body, html, #root {
   background-attachment: fixed;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .flex-wrapper {
   display: flex;
   flex-direction: column;
