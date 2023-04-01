@@ -1,3 +1,5 @@
+@import "constants.css";
+
 body, html, #root {
   margin: 0;
   padding: 0;
@@ -6,9 +8,9 @@ body, html, #root {
   font-family: 'Roboto Slab', serif;
   font-weight: 300;
 
-  background-color: #edf6f9;
+  background-color: var(--lightest-mint);
   opacity: 1;
-  background-image:  radial-gradient(#83c5be 2px, transparent 2px), radial-gradient(#83c5be 2px, #edf6f9 2px);
+  background-image:  radial-gradient(var(--light-mint) 2px, transparent 2px), radial-gradient(var(--light-mint) 2px, var(--lightest-mint) 2px);
   background-size: 80px 80px;
   background-position: 0 0,40px 40px;
   background-attachment: fixed;
@@ -36,13 +38,13 @@ body, html, #root {
 .container-row {
   width: 100%;
   display: flex;
-  gap: 25px;
+  gap: var(--container-row-gap);
 }
 
 .container-column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--container-column-gap);
 }
 
 .fill {
@@ -56,17 +58,17 @@ body, html, #root {
 }
 
 .text-primary {
-  color: #006D77;
+  color: var(--dark-mint);
 }
 
 .hint {
-  color: #6F686D;
+  color: var(--gray);
 }
 
 a {
-  color: #83c5be;
+  color: var(--light-mint);
 }
 
 a:visited {
-  color: #006D77;
+  color: var(--dark-mint);
 }

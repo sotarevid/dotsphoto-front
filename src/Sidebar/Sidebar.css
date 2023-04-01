@@ -1,11 +1,11 @@
 .sidebar {
     position: sticky;
-    top: 25px;
+    top: var(--app-margin);
     display: flex;
     flex-direction: column;
-    width: 100px;
-    height: calc(100vh - 81px - 25px - 25px - 63px); /* хихихихихи */
-    min-width: 100px;
+    width: var(--sidebar-width);
+    height: var(--sidebar-height);
+    min-width: var(--sidebar-width);
     gap: 10px;
     background-color: #ffffff;
     border-top-right-radius: 15px;
@@ -25,7 +25,7 @@
 }
 
 a.logout-button {
-    background-color: #83c5be;
+    background-color: var(--light-mint);
     color: #ffffff;
     border: none;
     border-radius: 5px;

@@ -1,0 +1,14 @@
+:root {
+    --dark-mint: #006d77;
+    --light-mint: #83c5be;
+    --lightest-mint: #edf6f9;
+    --gray: #6F686D;
+
+    --app-margin: 25px;
+    --container-row-gap: 25px;
+    --container-column-gap: 20px;
+
+    --header-height: 81px;
+    --sidebar-width: 100px;
+    --sidebar-height: calc(100vh - var(--header-height) - var(--app-margin) - var(--app-margin) - 63px);
+}
