@@ -33,15 +33,19 @@ body, html, #root {
   place-items: center;
 }
 
-.container {
-  max-width: 80%;
+.container-row {
+  width: 100%;
+  display: flex;
+  gap: 25px;
+}
+
+.container-column {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .fill {
-  width: 100%;
   flex: 1 0 auto;
 }
 

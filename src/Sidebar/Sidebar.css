@@ -1,0 +1,33 @@
+.sidebar {
+    position: sticky;
+    top: 25px;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: calc(100vh - 81px - 25px - 25px - 63px); /* хихихихихи */
+    min-width: 100px;
+    gap: 10px;
+    background-color: #ffffff;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 25px;
+}
+
+.sidebar-item {
+    text-decoration: none;
+    display: block;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.sidebar-item:last-child {
+    margin-top: auto;
+}
+
+a.logout-button {
+    background-color: #83c5be;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 7px;
+}

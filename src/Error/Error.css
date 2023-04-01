@@ -1,10 +1,23 @@
 .error-code {
     font-size: 320px;
     line-height: 320px;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .error-message {
     font-size: 32px;
     line-height: 32px;
+}
+
+.error-container {
+    flex: 1 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    place-content: center;
+    place-items: center;
+
+    margin-right: 175px;
 }

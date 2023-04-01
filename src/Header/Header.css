@@ -17,14 +17,3 @@
 .header-name-emphasis {
     color: #006D77;
 }
-
-.logout-button {
-    background-color: #006D77;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 32px;
-    line-height: 32px;
-    height: fit-content;
-}

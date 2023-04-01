@@ -14,7 +14,7 @@ function Register({setToken}) {
     }
 
     return (
-        <div className='card container center-contents'>
+        <div className='card container-column center-contents'>
             <h1 className='text-primary'>Welcome!</h1>
             <form className='auth-page-form'>
                 <input type='text' className='auth-page-input-text' placeholder='First name' value={firstName} onChange={e => setFirstName(e.target.value)}/>

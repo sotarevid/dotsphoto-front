@@ -11,7 +11,7 @@ function Login({setToken}) {
     }
 
     return (
-        <div className='card container center-contents'>
+        <div className='card container-column center-contents'>
             <h1 className='text-primary'>Welcome back!</h1>
 
             <form className='auth-page-form'>
