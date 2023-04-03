@@ -15,6 +15,7 @@
 
 .sidebar-item {
     text-decoration: none;
+    color: var(--dark-mint);
     display: block;
     font-size: 24px;
 }
