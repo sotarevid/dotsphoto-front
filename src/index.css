@@ -69,6 +69,11 @@ body, html, #root {
   color: var(--gray);
 }
 
+input {
+  font-family: inherit;
+  font-weight: 300;
+}
+
 a {
   color: var(--light-mint);
 }
