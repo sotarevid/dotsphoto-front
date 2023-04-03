@@ -22,9 +22,6 @@
 input[type='button'].sidebar-item {
     align-self: start;
     display: block;
-    font-family: inherit;
-    font-weight: 300;
-    font-size: 24px;
     border: none;
     background: none;
     border-radius: 5px;
