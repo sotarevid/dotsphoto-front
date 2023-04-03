@@ -15,7 +15,7 @@ function Login({setToken}) {
     });
 
     const validateEmail = () => {
-        if (!/[\w.]+@[\w.]+.\w/.test(email)) {
+        if (!/[\w.]+@[\w.]+\.\w/.test(email)) {
             setValidationErrors({
                 ...validationErrors,
                 email: true
