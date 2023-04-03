@@ -3,7 +3,6 @@
 Палитра - https://coolors.co/006d77-83c5be-edf6f9-6f686d  
 Фон - https://www.magicpattern.design/tools/css-backgrounds  
 Спиннер - https://loading.io/css/  
-Гамбургер - https://jonsuh.com/hamburgers/
 
 ## Подтянуть зависимости
 Легко! Вводишь `npm i` в терминал и 342 мегабайта зависимостей качаются тебе прямо в твой node_modules!
