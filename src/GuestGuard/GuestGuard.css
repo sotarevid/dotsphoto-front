@@ -48,3 +48,16 @@
     background: #ffffff;
     z-index: 1;
 }
+
+.auth-label-error {
+    color: var(--light-red);
+}
+
+.auth-input-text-error {
+    border-color: var(--light-red);
+    color: var(--dark-red);
+}
+
+.auth-input-text-error::placeholder {
+    color: var(--light-red);
+}

@@ -56,8 +56,8 @@ function Register({setToken}) {
                 <input name='patronymic' type='text' className='auth-page-input-text' placeholder='Egorovich' value={patronymic} onChange={e => setPatronymic(e.target.value)}/>
 
 
-                <label htmlFor='email' className='hint auth-label'>E-mail</label>
-                <input name='email' type='text' className='auth-page-input-text' placeholder='name@example.com' value={email} onChange={e => setEmail(e.target.value)} onBlur={e => validateEmail()}/>
+                <label htmlFor='email' className={`hint auth-label ${validationErrors.email ? 'auth-label-error' : ''}`}>E-mail</label>
+                <input name='email' type='text' className={`auth-page-input-text ${validationErrors.email ? 'auth-input-text-error' : ''}`} placeholder='name@example.com' value={email} onChange={e => setEmail(e.target.value)} onBlur={e => validateEmail()}/>
 
                 <label htmlFor='password' className='hint auth-label'>Password</label>
                 <input name='password' type='password' className='auth-page-input-text' placeholder='Password' value={password} onChange={e => setPassword(e.target.value)}/>
