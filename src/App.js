@@ -8,7 +8,7 @@ import Sidebar from "./Sidebar/Sidebar";
 
 function App({logout}) {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div className='flex-wrapper'>
                 <Header logout={logout}/>
 
