@@ -1,5 +1,6 @@
 # Name the node stage "builder"
 FROM node:16-alpine AS builder
+ENV PUBLIC_URL=/front
 # Set working directory
 WORKDIR /app
 # Copy all files from current directory to working dir in image
