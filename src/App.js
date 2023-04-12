@@ -25,9 +25,6 @@ function App({logout}) {
                         <Route path='/login'>
                             <Redirect to='/'/>
                         </Route>
-                        <Route path='/register'>
-                            <Redirect to='/'/>
-                        </Route>
                         <Route path='/*'>
                             <NotFound/>
                         </Route>

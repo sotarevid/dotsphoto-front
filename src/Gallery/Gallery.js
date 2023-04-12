@@ -1,5 +1,6 @@
 import React from "react";
 import './Gallery.css'
+import {useKeycloak} from "@react-keycloak/web";
 
 function getRandomInRange(min, max) {
     min = Math.ceil(min);
@@ -11,7 +12,7 @@ function getRandomImageLink(minX, maxX, minY, maxY) {
     return `http://via.placeholder.com/${getRandomInRange(minX, maxX)}x${getRandomInRange(minY, maxY)}`
 }
 
-function populateGallery(imageCount) {
+function populateGallery(imageCount, photos) {
     const result = [imageCount];
 
     for (let i = 0; i < imageCount; i++) {
@@ -22,9 +23,22 @@ function populateGallery(imageCount) {
 }
 
 function Gallery() {
+    let photos = []
+
+    const { keycloak } = useKeycloak();
+
+    fetch('http://localhost:8082/resource/photo', {
+        method: 'GET',
+        headers: {
+            'Origin': window.location.origin.toString(),
+            'Authorization': 'Bearer ' + keycloak.token
+        }
+    })
+        .then(response => photos = response.json())
+
     return (
         <div className="card gallery">
-            {populateGallery(20)}
+            {populateGallery(20, photos)}
         </div>
     )
 }

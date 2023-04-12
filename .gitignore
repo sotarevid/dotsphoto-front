@@ -75,6 +75,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# keycloak auth client config
+keycloack.json
 
 
 .travis/README.md
