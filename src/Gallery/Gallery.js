@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './Gallery.css'
 import {useKeycloak} from "@react-keycloak/web";
 
@@ -12,7 +12,7 @@ function getRandomImageLink(minX, maxX, minY, maxY) {
     return `http://via.placeholder.com/${getRandomInRange(minX, maxX)}x${getRandomInRange(minY, maxY)}`
 }
 
-function populateGallery(imageCount, photos) {
+function populateGallery(imageCount) {
     const result = [imageCount];
 
     for (let i = 0; i < imageCount; i++) {
@@ -23,22 +23,38 @@ function populateGallery(imageCount, photos) {
 }
 
 function Gallery() {
-    let photos = []
 
-    const { keycloak } = useKeycloak();
+    const {keycloak} = useKeycloak();
 
-    fetch('http://localhost:8082/resource/photo', {
-        method: 'GET',
-        headers: {
-            'Origin': window.location.origin.toString(),
-            'Authorization': 'Bearer ' + keycloak.token
+    const [photos, setPhotos] = useState([]);
+
+    const fetchPhotos = (token) => {
+        fetch(process.env.REACT_APP_RESOURCE_URL + '/photo', {
+            method: 'GET',
+            headers: {
+                'Origin': window.location.origin.toString(),
+                'Authorization': 'Bearer ' + token
+            }
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(data => setPhotos(data));
+    }
+
+    useEffect(() => {fetchPhotos(keycloak.token)}, [])
+
+    const getMTByExt = (extension) => {
+        switch (extension) {
+            case 'jpg': return 'jpeg';
+            default: return extension;
         }
-    })
-        .then(response => photos = response.json())
+    }
 
     return (
         <div className="card gallery">
-            {populateGallery(20, photos)}
+            {photos.map((photo, i) => (<img alt='placeholder' key={i} className='image'
+                                            src={`data:image/${getMTByExt(photo.filename.split('.')[1])};base64, ${photo.content}`} />))}
         </div>
     )
 }

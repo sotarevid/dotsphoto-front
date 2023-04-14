@@ -4,12 +4,17 @@ import './index.css';
 import App from './App';
 import keycloak from "./keycloak";
 import {ReactKeycloakProvider} from "@react-keycloak/web";
+import Spinner from "./Spinner/Spinner";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <ReactKeycloakProvider authClient={keycloak} initOptions={{onLoad: 'login-required'}} isLoadingCheck={(keycloak) => !keycloak.authenticated}>
-        <React.StrictMode>
-            <App />
-        </React.StrictMode>
-    </ReactKeycloakProvider>
+        <ReactKeycloakProvider authClient={keycloak}
+                               initOptions={{onLoad: 'login-required'}}
+                               keycloak={keycloak}
+                               isLoadingCheck={(keycloak) => !keycloak.authenticated}
+                               LoadingComponent={<Spinner />}>
+            <React.StrictMode>
+                <App/>
+            </React.StrictMode>
+        </ReactKeycloakProvider>
 );

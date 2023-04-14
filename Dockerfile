@@ -1,6 +1,7 @@
 # Name the node stage "builder"
 FROM node:16-alpine AS builder
 ENV PUBLIC_URL=/front
+ENV REACT_APP_RESOURCE_URL=http://vafonov.ru/resource
 # Set working directory
 WORKDIR /app
 # Copy all files from current directory to working dir in image

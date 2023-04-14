@@ -2,25 +2,40 @@ import React, {useState} from 'react';
 import "./Modal.css";
 import CloseButton from "./CloseButton";
 import FileInputSubmitButton from "./FileInputSubmitButton";
+import {useKeycloak} from "@react-keycloak/web";
 
 function Modal({hidden, callback}) {
+    const {keycloak} = useKeycloak();
+    const [file, setFile] = useState();
     const [buttonText, setButtonText] = useState('Browse...');
     const [isUploading, setIsUploading] = useState(false);
     const [done, setDone] = useState(false);
 
-    const mock = () => {
+    const mock = (token) => {
         setIsUploading(true);
-        setTimeout(() => whendone(), 3000);
+        const fd = new FormData();
+        fd.append("file", file);
+        fetch(process.env.REACT_APP_RESOURCE_URL + '/photo', {
+            method: 'POST',
+            headers: {
+                'Origin': window.location.origin.toString(),
+                'Authorization': 'Bearer ' + token
+            },
+            body: fd
+        })
+            .then(whendone)
     }
 
     const change = (e) => {
         setDone(false);
         setButtonText(e.target.files[0].name);
+        setFile(e.target.files[0])
     }
 
     const whendone = () => {
         setIsUploading(false);
         setDone(true);
+        window.location.reload();
     }
 
     const close = () => {
@@ -31,8 +46,7 @@ function Modal({hidden, callback}) {
 
     if (!hidden) {
         document.getElementById('root').classList.add('no-scroll');
-    }
-    else {
+    } else {
         document.getElementById('root').classList.remove('no-scroll');
     }
 
@@ -49,7 +63,7 @@ function Modal({hidden, callback}) {
                     {
                         buttonText === 'Browse...'
                             ? <></>
-                            : <FileInputSubmitButton done={done} isUploading={isUploading} callback={() => mock()}/>
+                            : <FileInputSubmitButton done={done} isUploading={isUploading} callback={() => mock(keycloak.token)}/>
                     }
                 </div>
             </div>

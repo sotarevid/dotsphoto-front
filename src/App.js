@@ -1,19 +1,34 @@
-import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
-import NotFound from "./Error/NotFound";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Header from "./Header/Header";
 import Gallery from "./Gallery/Gallery";
 import Footer from "./Footer/Footer";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Sidebar from "./Sidebar/Sidebar";
+import {useKeycloak} from "@react-keycloak/web";
 
 function App({logout}) {
-    return (
+
+    const {keycloak} = useKeycloak();
+
+    const [check, setCheck] = useState(false)
+
+    const checkUser = (token) => {
+        fetch(process.env.REACT_APP_RESOURCE_URL + '/user/check', {
+            method: 'GET',
+            headers: { 'Origin': window.location.origin.toString(), 'Authorization': 'Bearer ' + token }
+        }).then(response => {setCheck(response.json() !== null && response.json() !== undefined)})
+    }
+
+    useEffect(() => {checkUser(keycloak.token)})
+
+
+    return (check &&
         <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div className='flex-wrapper'>
                 <Header logout={logout}/>
 
                 <div className='container-row center-self fill'>
-                    <Sidebar logout={logout}/>
+                    <Sidebar logout={keycloak.logout}/>
 
                     <Switch>
                         <Route path='/' exact>
@@ -22,12 +37,12 @@ function App({logout}) {
                         <Route path='/albums' exact>
                             <Gallery/>
                         </Route>
-                        <Route path='/login'>
-                            <Redirect to='/'/>
-                        </Route>
-                        <Route path='/*'>
-                            <NotFound/>
-                        </Route>
+                        {/*<Route path='/login'>*/}
+                        {/*    <Redirect to='/'/>*/}
+                        {/*</Route>*/}
+                        {/*<Route path='/*'>*/}
+                        {/*    <NotFound/>*/}
+                        {/*</Route>*/}
                     </Switch>
                 </div>
 
