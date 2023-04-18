@@ -16,7 +16,11 @@ function App({logout}) {
         fetch(process.env.REACT_APP_RESOURCE_URL + '/user/check', {
             method: 'GET',
             headers: { 'Origin': window.location.origin.toString(), 'Authorization': 'Bearer ' + token }
-        }).then(response => {setCheck(response.json() !== null && response.json() !== undefined)})
+        }).then(response => {
+            response.json()
+        }).then(data => {
+            setCheck(data !== null && data !== undefined)
+        })
     }
 
     useEffect(() => {checkUser(keycloak.token)})

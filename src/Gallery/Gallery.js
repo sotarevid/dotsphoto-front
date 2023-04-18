@@ -18,11 +18,11 @@ function Gallery() {
                 'Origin': window.location.origin.toString(),
                 'Authorization': 'Bearer ' + token
             }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(data => setPhotoIds(data));
+        }).then(response => {
+            return response.json();
+        }).then(data => {
+            setPhotoIds(data)
+        });
     }, [token, setPhotoIds])
 
     return ( photoIds &&
