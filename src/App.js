@@ -17,9 +17,7 @@ function App({logout}) {
             method: 'GET',
             headers: { 'Origin': window.location.origin.toString(), 'Authorization': 'Bearer ' + token }
         }).then(response => {
-            return response.json()
-        }).then(data => {
-            setCheck(data !== null && data !== undefined)
+            setCheck(response.ok)
         })
     }
 
