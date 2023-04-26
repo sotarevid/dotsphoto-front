@@ -27,7 +27,7 @@ function Gallery() {
 
     return ( photoIds &&
         <div className="card gallery">
-            {photoIds.map((id) => <Photo key={id} photoId={id} />)}
+            {photoIds && photoIds.map((id) => <Photo key={id} photoId={id} />)}
         </div>
     )
 }
