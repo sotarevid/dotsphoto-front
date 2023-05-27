@@ -1,0 +1,8 @@
+{
+  "realm": "dotsphoto",
+  "auth-server-url": "http://vafonov.ru:8081/",
+  "ssl-required": "external",
+  "resource": "react-client",
+  "public-client": true,
+  "confidential-port": 0
+}

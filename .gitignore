@@ -74,6 +74,7 @@ typings/
 
 # dotenv environment variables file
 .env.development.local
+.env
 
 # keycloak auth client config
 keycloack.json
