@@ -8,7 +8,7 @@ import Sidebar from "./Sidebar/Sidebar";
 
 function App({logout}) {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename='/dotsphoto-front'>
             <div className='flex-wrapper'>
                 <Header logout={logout}/>
 
