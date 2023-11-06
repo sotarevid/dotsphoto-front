@@ -5,7 +5,7 @@ import Register from "./Register";
 
 function AuthPage({setToken}) {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename='/dotsphoto-front'>
             <Switch>
                 <Route path='/login'>
                     <Login setToken={setToken}/>
